@@ -20,14 +20,14 @@ const WelcomeNav = () => {
         <Link
           to="/login"
           state={{ from: "welcome" }}
-          className="px-6 py-3 bg-[var(--accent)] text-[var(--card-bg-color)] rounded-md font-semibold hover:bg-[var(--accent)]/80 transition"
+          className="px-2 py-1 flex justify-center items-center md:px-6 md:py-3 open-sans-200 bg-[var(--accent)] text-[var(--card-bg-color)] rounded-md font-semibold hover:bg-[var(--accent)]/80 transition"
         >
           Login
         </Link>
         <Link
           to="/signup"
           state={{ from: "welcome" }}
-          className="px-6 py-3 text-[var(--secondary-text-color)] rounded-md font-semibold hover:text-[var(--accent)]/80 transition"
+          className="px-2 py-1 flex justify-center items-center open-sans-200 text-[var(--secondary-text-color)] rounded-md font-semibold hover:text-[var(--accent)]/80 transition"
         >
           Sign Up
         </Link>

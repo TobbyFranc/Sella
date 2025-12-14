@@ -8,7 +8,7 @@ const ThemeToggle = ({ className = "" }) => {
   return (
     <button
       onClick={toggleTheme}
-      className={`p-2 rounded-full cursor-pointer hover:bg-[var(--accent)]/20 transition ${className}`}
+      className={`p-2  cursor-pointer hover:bg-[var(--accent)]/20 transition ${className}`}
     >
       {theme === "light" ? (
         <svg
