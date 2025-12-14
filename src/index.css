@@ -1,0 +1,82 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Bungee+Hairline&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Sankofa+Display&display=swap');
+
+/* Theme Variables */
+:root[data-theme="light"] {
+  --main-bg-color: #f9fafb;
+  --card-bg-color: #ffffff;
+  --secondary-text-color: #374151;
+  --accent: #6366f1; /* Indigo */
+  --errorColor : #ec5c0ebe;
+  --successColor: #0eec2cbe;
+}
+
+:root[data-theme="dark"] {
+  --main-bg-color: #111827;
+  --card-bg-color: #1f2937;
+  --secondary-text-color: #d1d5db;
+  --accent: #f59e0b; /* Amber */
+  --errorColor : #ec5c0ebe;
+    --successColor: #0eec2cbe;
+}
+
+/* Smooth transitions when toggling theme */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  background-color: var(--main-bg-color);
+  color: var(--secondary-text-color);
+  font-family: "Inter", sans-serif;
+}
+
+/* Utility classes */
+button {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fade-out {
+  animation: fade-out 1s ease-out forwards;
+}
+
+/* ===========================
+   Custom Fonts
+   =========================== */
+.montserrat-bold { font-family: "Montserrat", sans-serif; font-weight: 600; }
+.roboto-mono-200 { font-family: "Roboto Mono", monospace; font-weight: 200; }
+.open-sans-200 { font-family: "Open Sans", sans-serif; font-weight: 200; }
+.open-sans-600 { font-family: "Open Sans", sans-serif; font-weight: 600; }
+.open-sans-400 { font-family: "Open Sans", sans-serif; font-weight: 400; }
+.bungee-hairline-regular { font-family: "Bungee Hairline", sans-serif; font-weight: 400; }
+.bubblegum-sans-regular { font-family: "Bubblegum Sans", sans-serif; font-weight: 400; }
+.sankofa-display-regular { font-family: "Sankofa Display", sans-serif; font-weight: 400; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn {
+  animation: fadeIn 1s ease-in-out;
+}
