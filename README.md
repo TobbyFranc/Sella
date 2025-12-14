@@ -1,16 +1,49 @@
-# React + Vite
+# 🛒 Sella Ecommerce Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive ecommerce platform built with **React**, **TailwindCSS**, and **Vite**.  
+Sella Ecommerce demonstrates a complete shopping flow — from browsing products to checkout — with a clean UI, smooth UX, and scalable architecture.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- 📦 **Product Catalog** — Browse products with images, descriptions, and categories.
+- 🔍 **Filtering & Sorting** — Filter by category, search by keyword, and sort by price or newest arrivals.
+- 🛒 **Shopping Cart** — Add, remove, and update items with persistent state (local storage).
+- 💳 **Checkout Flow** — Simulated payment integration for realistic transactions.
+- 👤 **User Authentication** — Login, signup, and profile management.
+- 📂 **Category Browsing** — Navigate products by category with dynamic routes.
+- 📬 **Contact Page** — Integrated with **EmailJS** for direct communication.
+- 📱 **Responsive Design** — Optimized for mobile, tablet, and desktop.
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend:** React, TailwindCSS, Vite
+- **State Management:** Context API (or Redux Toolkit)
+- **API:** Fake Store API (mock data)
+- **Payments:** Stripe (test mode simulation)
+- **Email Integration:** EmailJS
+- **Deployment:** Vercel
+
+---
+
+## 📂 Project Structure
+
+src/ ├── components/ # Reusable UI components (Navbar, Footer, ProductCard, etc.) 
+    ├── context/ # CartContext, AuthContext
+    ├── pages/ # Page views (Home, Products, Cart, Checkout, Contact, etc.)
+    ├── data/ # JSON data (projects, mock products)
+    ├── App.jsx # Main app with routes
+    └── index.jsx # Entry point
+
+
+---
+
+## ⚙️ Setup & Installation
+
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/yourusername/sella-ecommerce.git
+   cd sella-ecommerce
