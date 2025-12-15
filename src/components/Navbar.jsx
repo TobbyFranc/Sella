@@ -120,14 +120,14 @@ const Navbar = () => {
         {user ? (
           <button
             onClick={handleLogout}
-            className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-[var(--errorColor)] transition"
+            className="px-2 py-1 md:px-4 md:py-2 bg-red-500 text-white rounded-md hover:bg-[var(--errorColor)] transition"
           >
             Logout
           </button>
         ) : (
           <Link
             to="/login"
-            className="px-4 py-2 bg-[var(--accent)] text-white rounded-md hover:bg-[var(--accent)]/80 transition"
+            className="px-2 py-1 md:px-4 md:py-2 bg-[var(--accent)] text-white rounded-md hover:bg-[var(--accent)]/80 transition"
           >
             Login
           </Link>
@@ -160,7 +160,7 @@ const Navbar = () => {
         </button>
 
         {/* Theme Toggle visible everywhere */}
-        <ThemeToggle className="absolute top-18 right-2 md:relative" />
+        <ThemeToggle className="absolute top-18 right-2 rounded-full md:relative" />
 
         {/* Hamburger (mobile) */}
         <button

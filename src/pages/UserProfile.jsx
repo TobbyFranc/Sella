@@ -64,12 +64,12 @@ const UserProfile = () => {
               alt="Placeholder"
               className="w-24 h-24 rounded-full border-2 border-gray-400 object-cover mx-auto mb-4"
             />
-            <p className="text-[var(--errorColor)] font-semibold my-6">
+            <p className=" text-[var(--errorColor)] font-semibold my-6">
               You are not logged in!
             </p>
             <a
               href="/login"
-              className="px-4 py-2 bg-[var(--accent)] text-white rounded-md font-semibold hover:bg-[var(--accent)]/80 transition"
+              className="px-4 py-2 open-sans-200 bg-[var(--accent)] text-white rounded-md font-semibold hover:bg-[var(--accent)]/80 transition"
             >
               Login
             </a>

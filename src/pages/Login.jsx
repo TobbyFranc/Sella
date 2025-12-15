@@ -37,7 +37,7 @@ const Login = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[var(--main-bg-color)] text-[var(--secondary-text-color)] px-6">
         {/* Back Button */}
-      <BackButton to="/" />
+      {/* <BackButton to="/" /> */}
 
       <div className="max-w-md w-full bg-[var(--card-bg-color)] rounded-lg shadow p-8">
         <h2 className="text-2xl font-bold text-[var(--accent)] mb-6">Login</h2>

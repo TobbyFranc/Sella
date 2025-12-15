@@ -49,7 +49,7 @@ const HeroSlider = () => {
       }}
     >
       {/* Overlay */}
-      <div className="bg-black/50 p-6 rounded-lg animate-fadeIn w-full h-full">
+      <div className="bg-black/80 p-6 rounded-lg animate-fadeIn w-full h-full flex flex-col items-center justify-center">
         <h1 className="text-3xl md:text-5xl font-bold mb-4">{slides[current].title}</h1>
         <p className="text-base md:text-lg mb-6">{slides[current].desc}</p>
         <Link
