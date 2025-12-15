@@ -12,7 +12,7 @@ const ProductCard = ({ product, onAddToCart }) => {
         <img
           src={productImage}
           alt={product.title}
-          className="h-40 w-full object-contain mb-4"
+          className="h-40 w-full object-contain mb-4 bg-slate-400/50 rounded-md hover:scale-105 transition duration-300"
         />
         <h3 className="text-sm font-semibold mb-2 truncate">{product.title}</h3>
       </Link>
@@ -21,7 +21,7 @@ const ProductCard = ({ product, onAddToCart }) => {
 
       <button
         onClick={() => onAddToCart(product, 1)}
-        className="px-4 py-2 bg-[var(--accent)] text-white rounded-md hover:bg-[var(--accent)]/80 transition"
+        className="px-4 py-2 bg-[var(--accent)] cursor-pointer text-white rounded-md hover:bg-[var(--accent)]/80 transition"
       >
         Add to Cart
       </button>

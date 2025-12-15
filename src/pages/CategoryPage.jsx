@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 import { useCart } from "../context/CartContext";
+import Breadcrumb from "../components/Breadcrumb";
 
 const CategoryPage = () => {
   const { categoryName } = useParams();
@@ -64,21 +65,23 @@ const CategoryPage = () => {
   return (
     <div className="px-6 py-12 mt-20">
       {/* Breadcrumb Navigation */}
-      <nav className="mb-4 text-sm text-gray-600">
-        <Link to="/" className="hover:underline">Home</Link> {" > "}
-        <Link to="/categories" className="hover:underline">Categories</Link> {" > "}
-        <span className="capitalize text-[var(--accent)]">{categoryName}</span>
-      </nav>
+<Breadcrumb
+  items={[
+    { to: "/", label: "Home" },
+    { to: "/categories", label: "Categories" },
+    { label: categoryName }
+  ]}
+/>
 
       {/* Back to Categories Button */}
-      <div className="mb-6">
+      {/* <div className="mb-6">
         <button
           onClick={() => navigate("/categories")}
           className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition"
         >
           ← Back to Categories
         </button>
-      </div>
+      </div> */}
 
       <h1 className="text-3xl font-bold mb-6 text-[var(--accent)] capitalize">
         {categoryName}

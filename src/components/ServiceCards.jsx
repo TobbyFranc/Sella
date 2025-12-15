@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import {
   FaTruck,
   FaMoneyBillWave,
@@ -6,6 +6,9 @@ import {
   FaSmile,
   FaShieldAlt,
 } from "react-icons/fa";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
 
 const services = [
   { icon: <FaTruck />, title: "Free Shipping", desc: "On orders above $50" },
@@ -16,47 +19,30 @@ const services = [
 ];
 
 const ServiceCards = () => {
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const cards = sectionRef.current.querySelectorAll(".service-card");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fadeInUp");
-            observer.unobserve(entry.target); // animate once
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    cards.forEach((card) => observer.observe(card));
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section
-      ref={sectionRef}
-      className="px-6 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 text-center"
-      aria-label="Our services"
-    >
-      {services.map((s, idx) => (
-        <div
-          key={idx}
-          className="service-card opacity-0 bg-[var(--card-bg-color)] rounded-lg shadow p-6 flex flex-col items-center hover:shadow-lg transition transform hover:-translate-y-1"
-          style={{ animationDelay: `${idx * 0.2}s`, animationDuration: "0.8s" }}
-        >
-          <div className="text-[var(--accent)] text-4xl mb-3 animate-bounce">
-            {s.icon}
-          </div>
-          <h3 className="font-semibold text-lg">{s.title}</h3>
-          <p className="text-sm mt-2 text-gray-600">{s.desc}</p>
-        </div>
-      ))}
+    <section className="px-6 py-12" aria-label="Our services">
+      <Swiper
+        spaceBetween={20}
+        slidesPerView={1} // ✅ one card per time on mobile
+        breakpoints={{
+          640: { slidesPerView: 2 }, // tablets
+          1024: { slidesPerView: 5 }, // desktops
+        }}
+        autoplay={{ delay: 3000 }}
+        modules={[Autoplay]}
+      >
+        {services.map((s, idx) => (
+          <SwiperSlide key={idx}>
+            <div className="service-card bg-[var(--card-bg-color)] rounded-lg p-6 flex flex-col items-center text-center drop-shadow-xl  transition transform ">
+              <div className="text-[var(--accent)] text-4xl mb-3">
+                {s.icon}
+              </div>
+              <h3 className="font-semibold text-lg">{s.title}</h3>
+              <p className="text-sm mt-2 text-gray-600">{s.desc}</p>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </section>
   );
 };

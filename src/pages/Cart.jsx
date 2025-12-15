@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useCart } from "../context/CartContext";
 import CartItem from "../components/CartItem";
 import { useNavigate } from "react-router-dom";
+import Breadcrumb from "../components/Breadcrumb";
 
 const Cart = () => {
   const { cart, removeFromCart, updateQuantity, clearCart } = useCart();
@@ -42,12 +43,21 @@ const Cart = () => {
     <div className="min-h-screen mt-12 bg-[var(--main-bg-color)] text-[var(--secondary-text-color)] px-6 py-12">
       <h2 className="text-2xl font-bold mb-6 text-[var(--accent)]">Your Cart</h2>
 
+      {/* Breadcrumb */}
+      <Breadcrumb
+  items={[
+    { to: "/home", label: "Home" },
+    { label: "Cart" }
+  ]}
+/>
+
+
       {cart.length === 0 ? (
         <div className="text-center">
           <p className="text-lg mb-4">Your cart is empty.</p>
           <button
-            onClick={() => navigate("/")}
-            className="px-6 py-3 bg-[var(--accent)] text-white rounded-md hover:bg-[var(--accent)]/80 transition"
+            onClick={() => navigate("/products")}
+            className="px-6 py-3 bg-[var(--accent)] cursor-pointer text-white rounded-md hover:bg-[var(--accent)]/80 transition"
           >
             Shop Now
           </button>

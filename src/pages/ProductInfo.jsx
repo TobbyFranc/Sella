@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import { useCart } from "../context/CartContext";
+import Breadcrumb from "../components/Breadcrumb";
 
 const ProductInfo = () => {
   const { id } = useParams();
@@ -66,21 +67,14 @@ const ProductInfo = () => {
   return (
     <div className="px-6 py-12 mt-20">
       {/* Breadcrumb Navigation */}
-      <nav className="mb-6 text-sm text-gray-600">
-        <Link to="/" className="hover:underline">Home</Link> {" > "}
-        <Link to="/categories" className="hover:underline">Categories</Link> {" > "}
-        {product.category && (
-          <>
-            <Link
-              to={`/category/${product.category}`}
-              className="hover:underline capitalize"
-            >
-              {product.category}
-            </Link>{" > "}
-          </>
-        )}
-        <span className="text-[var(--accent)]">{product.title}</span>
-      </nav>
+<Breadcrumb
+  items={[
+    { to: "/", label: "Home" },
+    { to: "/categories", label: "Categories" },
+    product.category && { to: `/category/${product.category}`, label: product.category },
+    { label: product.title }
+  ].filter(Boolean)} // ✅ filter removes nulls if category is missing
+/>
 
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 animate-fadeIn">
         <img

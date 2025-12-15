@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import Breadcrumb from "../components/Breadcrumb"; // ✅ import reusable breadcrumb
 
 const CategoriesPage = () => {
   const [categories, setCategories] = useState([]);
@@ -29,10 +30,19 @@ const CategoriesPage = () => {
 
   return (
     <div id="categories" className="px-6 py-12 mt-20">
-        <Navbar />
+      <Navbar />
 
+      {/* ✅ Breadcrumb navigation */}
+      <Breadcrumb
+        items={[
+          { to: "/", label: "Home" },
+          { label: "Categories" }
+        ]}
+      />
 
-      <h1 className="text-3xl font-bold mb-6 text-[var(--accent)] mt-12">Categories</h1>
+      <h1 className="text-3xl font-bold mb-6 text-[var(--accent)] mt-6">
+        Categories
+      </h1>
 
       {loading ? (
         <p className="text-center">Loading categories...</p>
