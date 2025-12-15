@@ -15,19 +15,43 @@ const Checkout = () => {
     cvc: "",
   });
 
+  const [coupon, setCoupon] = useState("");
+  const [discountRate, setDiscountRate] = useState(0);
+
+  // Calculate totals
   const subtotal = cart.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
   );
+  const taxRate = 0.05; // 5% tax
+  const tax = subtotal * taxRate;
+  const discount = subtotal * discountRate;
+  const total = subtotal + tax - discount;
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const applyCoupon = () => {
+    if (coupon.trim().toLowerCase() === "sella10") {
+      setDiscountRate(0.1); // 10% discount
+    } else if (coupon.trim().toLowerCase() === "sella20") {
+      setDiscountRate(0.2); // 20% discount
+    } else {
+      setDiscountRate(0);
+      alert("Invalid coupon code");
+    }
+  };
+
+  const removeCoupon = () => {
+    setDiscountRate(0);
+    setCoupon("");
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Simulate payment success (Stripe test mode would go here)
+    // Simulate payment success
     alert("Payment successful! 🎉 Order confirmed.");
     clearCart();
     navigate("/");
@@ -118,13 +142,50 @@ const Checkout = () => {
               <span>${subtotal.toFixed(2)}</span>
             </p>
             <p className="flex justify-between">
+              <span>Tax (5%):</span>
+              <span>${tax.toFixed(2)}</span>
+            </p>
+            {discountRate > 0 && (
+              <p className="flex justify-between">
+                <span>Discount ({discountRate * 100}%):</span>
+                <span>-${discount.toFixed(2)}</span>
+              </p>
+            )}
+            <p className="flex justify-between">
               <span>Shipping:</span>
               <span>Free</span>
             </p>
             <p className="flex justify-between font-bold text-lg mt-2">
               <span>Total:</span>
-              <span>${subtotal.toFixed(2)}</span>
+              <span>${total.toFixed(2)}</span>
             </p>
+
+            {/* Coupon Input */}
+            <div className="mt-6 flex gap-2">
+              <input
+                type="text"
+                value={coupon}
+                onChange={(e) => setCoupon(e.target.value)}
+                placeholder="Enter coupon code"
+                className="flex-1 px-4 py-2 border rounded-md"
+              />
+              <button
+                type="button"
+                onClick={applyCoupon}
+                className="px-6 py-2 bg-[var(--accent)] text-white rounded-md hover:bg-[var(--accent)]/80 transition"
+              >
+                Apply
+              </button>
+              {discountRate > 0 && (
+                <button
+                  type="button"
+                  onClick={removeCoupon}
+                  className="px-6 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition"
+                >
+                  Remove
+                </button>
+              )}
+            </div>
           </div>
 
           {/* Submit */}

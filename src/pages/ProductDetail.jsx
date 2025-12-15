@@ -8,7 +8,7 @@ import { useCart } from "../context/CartContext";
 const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [categories, setCategories] = useState([]); // store available categories
+  const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState("all");
   const [sortOption, setSortOption] = useState("default");
   const [searchTerm, setSearchTerm] = useState("");
@@ -19,12 +19,14 @@ const ProductList = () => {
     const fetchProducts = async () => {
       try {
         const res = await fetch("https://dummyjson.com/products?limit=100");
+        if (!res.ok) throw new Error("Failed to fetch products");
         const data = await res.json();
+
         setProducts(data.products);
         setFilteredProducts(data.products);
 
-        // Extract unique categories
-        const uniqueCategories = [...new Set(data.products.map((p) => p.category))];
+        // Extract unique categories + add "all"
+        const uniqueCategories = ["all", ...new Set(data.products.map((p) => p.category))];
         setCategories(uniqueCategories);
       } catch (err) {
         console.error("Error fetching products:", err);
@@ -81,7 +83,7 @@ const ProductList = () => {
             <ProductCard
               key={product.id}
               product={product}
-              onAddToCart={() => addToCart(product)}
+              onAddToCart={() => addToCart(product, 1)} // ✅ pass quantity
             />
           ))}
         </div>

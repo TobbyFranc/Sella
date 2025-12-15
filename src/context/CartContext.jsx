@@ -11,11 +11,11 @@ const cartReducer = (state, action) => {
       if (existingItem) {
         return state.map((item) =>
           item.id === action.payload.id
-            ? { ...item, quantity: item.quantity + 1 }
+            ? { ...item, quantity: item.quantity + action.payload.quantity }
             : item
         );
       }
-      return [...state, { ...action.payload, quantity: 1 }];
+      return [...state, { ...action.payload, quantity: action.payload.quantity }];
 
     case "REMOVE_FROM_CART":
       return state.filter((item) => item.id !== action.payload);
@@ -48,7 +48,8 @@ export const CartProvider = ({ children }) => {
   }, [cart]);
 
   // Action functions
-  const addToCart = (product) => dispatch({ type: "ADD_TO_CART", payload: product });
+  const addToCart = (product, quantity = 1) =>
+    dispatch({ type: "ADD_TO_CART", payload: { ...product, quantity } });
   const removeFromCart = (id) => dispatch({ type: "REMOVE_FROM_CART", payload: id });
   const updateQuantity = (id, quantity) =>
     dispatch({ type: "UPDATE_QUANTITY", payload: { id, quantity } });

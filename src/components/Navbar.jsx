@@ -247,7 +247,7 @@ const Navbar = () => {
                   handleLogout();
                   setMenuOpen(false);
                 }}
-                className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition"
+                className="px-2 py-1 flex justify-center items-center md:px-6 md:py-3 open-sans-200 bg-[var(--errorColor)] text-[var(--card-bg-color)] rounded-md font-semibold hover:bg-[var(--accent)]/80 transition"
               >
                 Logout
               </button>
@@ -255,7 +255,7 @@ const Navbar = () => {
               <Link
                 to="/login"
                 onClick={() => setMenuOpen(false)}
-                className="px-4 py-2 bg-[var(--accent)] text-white rounded-md hover:bg-[var(--accent)]/80 transition"
+                className="px-2 py-1 flex justify-center items-center md:px-6 md:py-3 open-sans-200 bg-[var(--accent)] text-[var(--card-bg-color)] rounded-md font-semibold hover:bg-[var(--accent)]/80 transition"
               >
                 Login
               </Link>

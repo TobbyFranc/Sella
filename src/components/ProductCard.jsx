@@ -1,4 +1,3 @@
-// src/components/ProductCard.jsx
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ product, onAddToCart }) => {
@@ -8,8 +7,8 @@ const ProductCard = ({ product, onAddToCart }) => {
 
   return (
     <div className="bg-[var(--card-bg-color)] open-sans-200 rounded-lg shadow p-4 flex flex-col justify-between h-[350px]">
-      {/* Link to ProductInfo detail page */}
-      <Link to={`/productinfo/${product.id}`}>
+      {/* Link to ProductInfo detail page with product passed in state */}
+      <Link to={`/productinfo/${product.id}`} state={product}>
         <img
           src={productImage}
           alt={product.title}
@@ -17,12 +16,11 @@ const ProductCard = ({ product, onAddToCart }) => {
         />
         <h3 className="text-sm font-semibold mb-2 truncate">{product.title}</h3>
       </Link>
-      {/* <p className="mb-4">{product.description}</p> */}
 
       <p className="text-[var(--accent)] font-bold mb-2">${product.price}</p>
 
       <button
-        onClick={onAddToCart}
+        onClick={() => onAddToCart(product, 1)}
         className="px-4 py-2 bg-[var(--accent)] text-white rounded-md hover:bg-[var(--accent)]/80 transition"
       >
         Add to Cart

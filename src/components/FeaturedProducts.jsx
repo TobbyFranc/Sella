@@ -1,4 +1,3 @@
-// src/components/FeaturedProducts.jsx
 import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import { useCart } from "../context/CartContext";
@@ -28,7 +27,7 @@ const FeaturedProducts = () => {
           <ProductCard
             key={product.id}
             product={product}
-            onAddToCart={() => addToCart(product)}
+            onAddToCart={addToCart}
           />
         ))}
       </div>

@@ -22,7 +22,10 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ForgotPassword from "./pages/ForgotPassword";
 import CategoryPage from "./pages/CategoryPage";
-import Contact from "./pages/Contact";   // ✅ import Contact page
+import Contact from "./pages/Contact";   // 
+
+import NotFound from "./pages/NotFound";
+import CategoriesPage from "./pages/CategoriesPage";
 
 // Context Providers
 import { CartProvider } from "./context/CartContext";
@@ -115,7 +118,13 @@ const App = () => {
               <Route path="/editProfile" element={<Layout><EditProfile /></Layout>} />
 
               {/* Contact page */}
-              <Route path="/contact" element={<Layout><Contact /></Layout>} />  {/* ✅ Added */}
+              <Route path="/contact" element={<Layout><Contact /></Layout>} />
+
+              {/* Categories list */}
+        <Route path="/categories" element={<CategoriesPage />} />
+              
+              {/* Not Found Page. ERROR 404 you get? */}
+              <Route path="*" element={<Layout><NotFound /></Layout>} />
             </Routes>
           </Router>
         </CartProvider>
