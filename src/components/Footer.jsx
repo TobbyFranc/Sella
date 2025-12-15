@@ -38,7 +38,7 @@ const Footer = () => {
           <ul className="space-y-2">
             <li>
               <a href="mailto:hello@shopease.com" className="hover:text-[var(--accent)]">
-                hello@shopease.com
+                hello@sella.com
               </a>
             </li>
             <li>
