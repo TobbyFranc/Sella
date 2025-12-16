@@ -58,7 +58,7 @@ const Checkout = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--main-bg-color)] text-[var(--secondary-text-color)] px-6 py-12">
+    <div className="min-h-screen mt-12 bg-[var(--main-bg-color)] text-[var(--secondary-text-color)] px-6 py-12">
       <h2 className="text-2xl font-bold mb-6 text-[var(--accent)]">Checkout</h2>
 
       {cart.length === 0 ? (
@@ -112,7 +112,7 @@ const Checkout = () => {
               className="w-full mb-3 px-4 py-2 rounded border border-gray-300"
               required
             />
-            <div className="flex gap-4">
+            <div className="flex flex-col md:flex-row gap-4">
               <input
                 type="text"
                 name="expiry"
@@ -161,7 +161,7 @@ const Checkout = () => {
             </p>
 
             {/* Coupon Input */}
-            <div className="mt-6 flex gap-2">
+            <div className="mt-6 flex flex-col md:flex-row gap-2">
               <input
                 type="text"
                 value={coupon}
