@@ -52,7 +52,7 @@ const CheckoutForm = () => {
 
       <div className="mt-6">
         <h3 className="text-xl font-semibold mb-4">Order Summary</h3>
-        <p className="flex justify-between">
+        <p className="flex justify-between ">
           <span>Subtotal:</span>
           <span>${subtotal.toFixed(2)}</span>
         </p>
@@ -69,7 +69,7 @@ const CheckoutForm = () => {
       <button
         type="submit"
         disabled={!stripe || loading}
-        className="w-full px-6 py-3 bg-[var(--accent)] text-[var(--main-bg-color)] rounded-md font-semibold hover:bg-[var(--accent)]/80 transition shadow"
+        className="w-full cursor-pointer px-6 py-3 bg-[var(--accent)] text-[var(--main-bg-color)] rounded-md font-semibold hover:bg-[var(--accent)]/80 transition shadow"
       >
         {loading ? "Processing..." : "Pay Now"}
       </button>
