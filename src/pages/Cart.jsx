@@ -116,7 +116,7 @@ const Cart = () => {
             </p>
 
             {/* Coupon Input */}
-            <div className="mt-6 flex gap-2">
+            <div className="mt-6 flex flex-col md:flex-row gap-2">
               <input
                 type="text"
                 value={coupon}
@@ -141,10 +141,10 @@ const Cart = () => {
             </div>
 
             {/* Actions */}
-            <div className="mt-6 flex gap-4">
+            <div className="mt-12 flex flex-col md:flex-row gap-4">
               <button
                 onClick={() => navigate("/checkout")}
-                className="flex-1 px-6 py-3 bg-[var(--accent)] text-[var(--main-bg-color)] rounded-md font-semibold hover:bg-[var(--accent)]/80 transition shadow"
+                className="flex-1 px-6 py-3 bg-[var(--accent)] text-[var(--main-bg-color)] rounded-md font-semibold open-sans-200 hover:bg-[var(--accent)]/80 transition shadow"
               >
                 Proceed to Checkout
               </button>
